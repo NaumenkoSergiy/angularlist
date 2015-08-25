@@ -81,4 +81,21 @@
       border-bottom: 1px solid #239623; 
     }
   }
+
+  .sort {
+    float: right;
+    span {
+      cursor: pointer;
+      color: blue;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    span.glyphicon {
+      visibility: hidden;
+      &.active {
+        visibility: visible;
+      }
+    }
+  }
 }

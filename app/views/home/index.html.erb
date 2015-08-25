@@ -6,6 +6,16 @@
     </button>
   </form>
 
+  <div class='sort'>
+    Sort by:
+    <span ng-click="sort('priority')">
+      Priority <span id='priority' class="glyphicon glyphicon-arrow-down active"></span>
+    </span> |
+    <span ng-click="sort('due_date')">
+      Due Date <span id='due_date' class="glyphicon glyphicon-arrow-down"></span>
+    </span>
+  </div>
+
   <ul class='tasks'>
     <li ng-repeat='task in tasks'>
       <div class='action-links'>

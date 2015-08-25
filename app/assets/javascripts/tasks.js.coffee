@@ -48,4 +48,21 @@ app.factory 'Task', ['$resource', ($resource) ->
       idx = $scope.completed_tasks.indexOf(task)
       $scope.completed_tasks.splice idx, 1
       $scope.tasks.push(task)
+
+  $scope.sort = (field) ->
+    $('.sort .glyphicon').removeClass('active')
+    arrow = $("#" + field)
+    arrow.addClass('active')
+    if arrow.hasClass('glyphicon-arrow-down')
+      arrow.removeClass('glyphicon-arrow-down')
+      arrow.addClass('glyphicon-arrow-up')
+      direction = 'desc'
+    else
+      arrow.addClass('glyphicon-arrow-down')
+      arrow.removeClass('glyphicon-arrow-up')
+      direction = 'asc'
+
+    $scope.tasks = Task.query
+      status: 'active', order_by: field, direction: direction
+    , ->
 ]
