@@ -1,3 +1,5 @@
+@import 'bootstrap';
+
 body {
   background-color: #7D7DF3;
 }
@@ -63,4 +65,30 @@ form {
 
 input[type=submit] {
   margin-top: 15px;
+}
+
+body {
+  padding-top: 10px;
+}
+
+button {
+  margin-top: 15px;
+}
+
+input[type=email],
+input[type=text],
+input[type=password] {
+  display: inline-block;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  border-radius: 4px;
+  vertical-align: middle;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  outline-color: #555;
+  width: 233px;
 }

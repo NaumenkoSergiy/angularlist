@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'better_errors'
 gem 'devise'
-gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 group :development, :test do
   gem 'pry'

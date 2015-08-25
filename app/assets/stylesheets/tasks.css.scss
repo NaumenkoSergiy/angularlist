@@ -2,43 +2,31 @@
   form {
     button, input { margin: 0px; }
   }
-
   .tasks {
     margin-top: 15px;
     list-style: none;
     padding: 0;
-    max-width: 400px;
+
     .title, .chbx { float: left; }
     .title {
       font-size: 18px;
     }
-
     li {
       position: relative;
-      height: 35px;
-      form {
-        position: absolute;
-        margin-left: 33px;
-      }
+      height: 40px;
     }
-
     .action-links {
-      float: right;
+      float: left;
       font-size: 13px;
       color: #4141FF;
-      margin-top: 2px;
+      margin-top: 5px;
       span {
         cursor: pointer;
-        &:hover {
-          text-decoration: underline;
-        }
       }
     }
-
     .chbx {
-      margin: 1px 10px 10px 10px;
+      margin: 3px 10px 10px 10px;
     }
-
     div.clearboth { clear: both; }
   }
 }
