@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'better_errors'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'heroku'
 
 group :development, :test do
   gem 'pry'
@@ -38,6 +39,9 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-collection_matchers'
+  gem 'capybara-webkit'
+  gem 'capybara', '~> 2.4.4'
+  gem 'selenium-webdriver'
 end
 
 group :test do
