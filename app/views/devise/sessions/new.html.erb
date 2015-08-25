@@ -1,0 +1,11 @@
+<h2>Sign in</h2>
+
+<%= form_for(:user, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %>
+  <%= f.email_field :email, :autofocus => true, name: :email %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password, name: :password %></div>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
