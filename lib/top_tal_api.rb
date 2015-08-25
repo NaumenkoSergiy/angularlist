@@ -1,14 +1,21 @@
 module TopTalApi
 
+  TOKEN_EXPIRATION_TIME = 2.hours
+
   def self.find_user_by token
-    User.joins(:access_token).where('access_tokens.token = ?', token).first
+    user = User.joins(:access_token).where('access_tokens.token = ?', token).first
+    if user && user.access_token.created_at < Time.now - TOKEN_EXPIRATION_TIME
+      user.access_token.destroy
+      return nil
+    end
+    user
   end
 
   class Client
     attr_accessor :email, :password
 
     def initialize(email, password)
-      @email = email
+      @email    = email
       @password = password
     end
 
