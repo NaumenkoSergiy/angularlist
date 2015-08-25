@@ -1,5 +1,4 @@
-app = angular.module('Tasks', ['ngResource', 'xeditable']).run (editableOptions) ->
-  editableOptions.theme = 'default'
+app = angular.module('Tasks', ['ngResource', 'xeditable'])
 
 app.factory 'Task', ['$resource', ($resource) ->
   $resource('/tasks/:id', {id: '@id'}, {update: {method: 'PUT'}})
@@ -8,11 +7,9 @@ app.factory 'Task', ['$resource', ($resource) ->
 @TasksCtrl = ['$scope', 'Task', ($scope, Task) ->
   $scope.tasks = Task.query
     status: 'active'
-  , ->
 
   $scope.completed_tasks = Task.query
     status: 'completed'
-  , ->
 
   $scope.add = ->
     task = Task.save($scope.newTask)
@@ -64,7 +61,6 @@ app.factory 'Task', ['$resource', ($resource) ->
 
     $scope.tasks = Task.query
       status: 'active', order_by: field, direction: direction
-    , ->
 
    $scope.attachDatepicker = (task) ->
     $('form input').datepicker
