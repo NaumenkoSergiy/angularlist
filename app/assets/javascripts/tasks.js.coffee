@@ -63,7 +63,7 @@ app.factory 'Task', ['$resource', ($resource) ->
       status: 'active', order_by: field, direction: direction
 
    $scope.attachDatepicker = (task) ->
-    $('form input').datepicker
+    $('ul.tasks form input').datepicker
       dateFormat: 'yy-mm-dd'
       ,onSelect: (date, instance) ->
         task.due_date = date
