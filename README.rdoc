@@ -2,7 +2,7 @@
 
 This is ToDo list build with angularjs and API on the back-end using RoR.
 
-[Link](http://angularlist-naumenko.herokuapp.com/) to Heroku app.
+Link to Heroku app: http://angularlist-naumenko.herokuapp.com/
 
 = API
 
