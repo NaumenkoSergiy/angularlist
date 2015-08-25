@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   validates :title, presence: true
-  validates :priority, numericality: true
+  validates :priority, numericality: true, allow_blank: true
   scope :active, -> { where(completed: false) }
   scope :completed, -> { where(completed: true) }
 
