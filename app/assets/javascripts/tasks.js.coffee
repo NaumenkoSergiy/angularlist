@@ -1,4 +1,5 @@
-app = angular.module('Tasks', ['ngResource'])
+app = angular.module('Tasks', ['ngResource', 'xeditable']).run (editableOptions) ->
+  editableOptions.theme = 'default'
 
 app.factory 'Task', ['$resource', ($resource) ->
   $resource('/tasks/:id', {id: '@id'}, {update: {method: 'PUT'}})
@@ -20,4 +21,6 @@ app.factory 'Task', ['$resource', ($resource) ->
       , (success) ->
         $scope.tasks.splice idx, 1
         return
+  $scope.updateTask = (task, data) ->
+    Task.update(id: task.id, task: {title: data})
 ]

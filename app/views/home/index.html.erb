@@ -11,9 +11,8 @@
       <div class='chbx'>
         <input type='checkbox'/>
       </div>
-      <div class='title'>{{task.title}}</div>
+      <div class='title' editable-text="task.title" buttons='no' onbeforesave='updateTask(task, $data)'>{{task.title}}</div>
       <div class='action-links'>
-        <span ng-click='edit(task)'>Edit</span> |
         <span ng-click='delete(task)'>Delete</span>
       </div>
       <div class='clearboth'></div>
