@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'top_tal_api'
 
 describe 'Home', type: :feature do
+  self.use_transactional_fixtures = false
 
   context '#index' do
     it "add task", js: true do
