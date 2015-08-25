@@ -14,7 +14,7 @@ app.factory 'Task', ['$resource', ($resource) ->
     status: 'completed'
   , ->
 
-  $scope.addTask = ->
+  $scope.add = ->
     task = Task.save($scope.newTask)
     $scope.tasks.push(task)
     $scope.newTask = {}
@@ -27,6 +27,23 @@ app.factory 'Task', ['$resource', ($resource) ->
       , (success) ->
         $scope.tasks.splice idx, 1
         return
-  $scope.updateTask = (task, data) ->
+
+  $scope.update = (task, data) ->
     Task.update(id: task.id, task: {title: data})
+
+  $scope.complete = (task) ->
+    Task.update
+      id: task.id, task: {completed: true}
+    , ->
+      idx = $scope.tasks.indexOf(task)
+      $scope.tasks.splice idx, 1
+      $scope.completed_tasks.push(task)
+
+  $scope.restore = (task) ->
+    Task.update
+      id: task.id, task: {completed: false}
+    , ->
+      idx = $scope.completed_tasks.indexOf(task)
+      $scope.completed_tasks.splice idx, 1
+      $scope.tasks.push(task)
 ]
