@@ -9,7 +9,7 @@ development:
   <<: *default
   database: angularlist_development
 
-test:
+test: &test
   <<: *default
   database: angularlist_test
 
@@ -19,3 +19,6 @@ production:
   database: angularlist_production
   username: angularlist
   password: <%= ENV['ANGULARLIST_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
