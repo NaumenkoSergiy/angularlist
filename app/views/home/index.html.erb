@@ -33,7 +33,7 @@
           {{task.priority || 'click to set priority'}}
         </div>
         <div class='due_date'>due date: </div>
-        <div class='priority' editable-text='task.due_date' buttons='no' onbeforesave="update(task, $data, 'due_date')">
+        <div class='priority' editable-text='task.due_date' onShow='attachDatepicker(task)' buttons='no' blur='cancel' onbeforesave="update(task, $data, 'due_date')">
           {{task.due_date || 'click to pick a date'}}
         </div>
       </div>

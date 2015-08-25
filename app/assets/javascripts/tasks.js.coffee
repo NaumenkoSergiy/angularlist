@@ -65,4 +65,12 @@ app.factory 'Task', ['$resource', ($resource) ->
     $scope.tasks = Task.query
       status: 'active', order_by: field, direction: direction
     , ->
+
+   $scope.attachDatepicker = (task) ->
+    $('form input').datepicker
+      dateFormat: 'yy-mm-dd'
+      ,onSelect: (date, instance) ->
+        task.due_date = date
+        Task.update(id: task.id, {due_date: date})
+        $('body').click()
 ]
