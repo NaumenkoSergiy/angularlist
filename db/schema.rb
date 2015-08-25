@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150825090320) do
     t.string   "title"
     t.integer  "priority"
     t.date     "due_date"
-    t.boolean  "completed"
+    t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

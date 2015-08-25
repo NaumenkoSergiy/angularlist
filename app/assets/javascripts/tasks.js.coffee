@@ -6,7 +6,13 @@ app.factory 'Task', ['$resource', ($resource) ->
 ]
 
 @TasksCtrl = ['$scope', 'Task', ($scope, Task) ->
-  $scope.tasks = Task.query ->
+  $scope.tasks = Task.query
+    status: 'active'
+  , ->
+
+  $scope.completed_tasks = Task.query
+    status: 'completed'
+  , ->
 
   $scope.addTask = ->
     task = Task.save($scope.newTask)

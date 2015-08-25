@@ -5,7 +5,9 @@ class TasksController < ApplicationController
   before_filter :find_task, only: [:update, :destroy]
 
   def index
-    respond_with current_user.tasks
+    tasks = current_user.tasks.order('id asc')
+    tasks = tasks.send(params[:status]) if params[:status]
+    respond_with tasks
   end
 
   def create
