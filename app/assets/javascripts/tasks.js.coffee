@@ -70,10 +70,11 @@ app.factory 'Task', ['$resource', ($resource) ->
       status: 'active', order_by: field, direction: direction
 
    $scope.attachDatepicker = (task) ->
-    $('ul.tasks form input').datepicker
-      dateFormat: 'yy-mm-dd'
-      ,onSelect: (date, instance) ->
-        task.due_date = date
-        Task.update(id: task.id, {due_date: date})
-        $('body').click()
+     self = this
+     $('ul.tasks form input').datepicker
+       dateFormat: 'yy-mm-dd'
+       , onSelect: (date, instance) ->
+         task.due_date = date
+         Task.update(id: task.id, {due_date: date})
+         self.$editable.scope.$form.$cancel()
 ]
