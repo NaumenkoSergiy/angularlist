@@ -1,0 +1,13 @@
+.tasks {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+
+  .title, .chbx { float: left; }
+  .action-links {
+    float: right;
+    font-size: 13px;
+    color: #4141FF;
+  }
+  div.clearboth { clear: both; }
+}

@@ -1,1 +1,20 @@
-Homeeeee
+<div ng-controller='TasksCtrl'>
+  <form ng-submit='addTask()'>
+    <input type='text' ng-model='newTask.title'/>
+    <input type='submit' value='add' />
+  </form>
+
+  <ul class='tasks'>
+    <li ng-repeat='task in tasks'>
+      <div class='chbx'>
+        <input type='checkbox'/>
+      </div>
+      <div class='title'>{{task.title}}</div>
+      <div class='action-links'>
+        <span>Delete</span> |
+        <span>Edit</span>
+      </div>
+      <div class='clearboth'></div>
+    </li>
+  </ul>
+</div>

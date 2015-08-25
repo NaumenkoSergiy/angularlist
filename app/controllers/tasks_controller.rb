@@ -9,11 +9,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    respond_with current_user.tasks.create(params[:task])
+    respond_with current_user.tasks.create(task_params)
   end
 
   def update
-    respond_with @task.update_attributes(params[:task])
+    respond_with @task.update_attributes(task_params)
   end
 
   def destroy
@@ -24,5 +24,9 @@ class TasksController < ApplicationController
 
   def find_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def task_params
+    params.require(:task).permit(:title)
   end
 end
