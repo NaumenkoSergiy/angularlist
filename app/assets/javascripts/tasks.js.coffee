@@ -4,7 +4,7 @@ app.factory 'Task', ['$resource', ($resource) ->
   $resource('/tasks/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]
 
-@TasksCtrl = ['$scope', 'Task', ($scope, Task) ->
+@TasksCtrl = ['$scope', '$q', 'Task', ($scope, $q, Task) ->
   $scope.tasks = Task.query
     status: 'active'
 
@@ -28,7 +28,14 @@ app.factory 'Task', ['$resource', ($resource) ->
   $scope.update = (task, data, field) ->
     attributes = {}
     attributes[field] = data
-    Task.update(id: task.id, {task: attributes})
+    d = $q.defer()
+    Task.update( id: task.id, {task: attributes},
+      () ->
+        d.resolve()
+      (response) ->
+        d.resolve response.data.errors[field][0]
+    )
+    return d.promise
 
   $scope.complete = (task) ->
     Task.update

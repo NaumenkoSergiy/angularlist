@@ -15,7 +15,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_with @task.update_attributes(task_params)
+    @task.update_attributes(task_params)
+    respond_with @task
   end
 
   def destroy
