@@ -28,8 +28,10 @@ app.factory 'Task', ['$resource', ($resource) ->
         $scope.tasks.splice idx, 1
         return
 
-  $scope.update = (task, data) ->
-    Task.update(id: task.id, task: {title: data})
+  $scope.update = (task, data, field) ->
+    attributes = {}
+    attributes[field] = data
+    Task.update(id: task.id, {task: attributes})
 
   $scope.complete = (task) ->
     Task.update

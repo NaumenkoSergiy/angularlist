@@ -7,13 +7,34 @@
     list-style: none;
     padding: 0;
 
-    .title, .chbx { float: left; }
+    .title, .chbx, .priority, .due_date { float: left; }
     .title {
       font-size: 18px;
     }
+    .pd {
+      position: absolute;
+      left: 47px;
+      top: 27px;
+      font-size: 12px;
+      font-style: italic;
+      .due_date {
+        margin-left: 10px;
+      }
+      .priority, .due_date {
+        margin-right: 5px;
+      }
+      input[type=text] {
+        height: 22px;
+        width: 68px;
+        padding: 1px;
+        font-size: 10px;
+        margin-left: 10px;
+      }
+      form { float: left; }
+    }
     li {
       position: relative;
-      height: 40px;
+      height: 60px;
       &:hover .action-links {
         visibility: visible;
       }
@@ -33,7 +54,10 @@
     }
 
     &.completed {
-      li { padding-left: 13px; }
+      li {
+        padding-left: 13px;
+        height: 40px;
+      }
       div.title {
         text-decoration: line-through;
         font-size: 18px;
@@ -54,7 +78,7 @@
       height: 21px;
       margin-left: 15px;
       width: 555px;
-      border-bottom: 1px solid #239623;
+      border-bottom: 1px solid #239623; 
     }
   }
 }
