@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app='Tasks'>
+  <head>
+    <title>Toptal API</title>
+    <style>
+      .title {
+        font-size: 20px;
+      }
+      .code {
+        margin: 30px;
+        font-size: 15px;
+        color: #6B6B6B;
+      }
+      .hint {
+        font-style: italic;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>API</h1>
+
+    <div class='title'>1 authorize a client</div>
+    <div class='code'>  curl -X POST --data "email=[email]&password=[password]" http://localhost:3000/users/sign_in</div>
+    <div class='hint'>  if success it returns an access token</div>
+    <div class='hint'>  token is valid for two hours then you need to go thru authorization again and get new access token</div>
+    </br>
+    </br>
+    <div class='title'>2 get the list of tasks</div>
+    <div class='code'>  curl -X GET --data "token=[access token]" http://localhost:3000/tasks</div>
+    <div class='title'>3 create new task</div>
+    <div class='code'>  curl -X POST --data "token=[acess token]&task[title]=newtask" http://localhost:3000/tasks</div>
+    <div class='title'>4 complete task</div>
+    <div class='code'>  curl -X PUT --data "token=[access token]&task[completed]=true" http://localhost:3000/tasks/[task id]</div>
+    <div class='title'>5 update existing task</div>
+    <div class='code'>  curl -X PUT --data "token=[access token]&task[priority|due_date|title]=[value]" http://localhost:3000/tasks/[task id]</div>
+    <div class='title'>6 delete task</div>
+    <div class='code'>  curl -X DELETE --data "token=[access token]" http://localhost:3000/tasks/[task id]</div>
+    <div class='title'>7 sort tasks</div>
+    <div class='code'>  curl -X GET --data "token=[access token]&order_by=priority&direction=asc" http://localhost:3000/tasks</div>
+  </body>
+</html>
