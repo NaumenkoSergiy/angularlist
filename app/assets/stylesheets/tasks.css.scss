@@ -1,19 +1,35 @@
-.tasks {
-  list-style: none;
-  padding: 0;
-  max-width: 400px;
+.tasks-container {
+  form {
+    button, input { margin: 0px; }
+  }
 
-  .title, .chbx { float: left; }
-  .action-links {
-    float: right;
-    font-size: 13px;
-    color: #4141FF;
-    span {
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
+  .tasks {
+    margin-top: 15px;
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    .title, .chbx { float: left; }
+    .title {
+      font-size: 18px;
+    }
+
+    .action-links {
+      float: right;
+      font-size: 13px;
+      color: #4141FF;
+      margin-top: 2px;
+      span {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
+
+    .chbx {
+      margin: 1px 10px 10px 10px;
+    }
+
+    div.clearboth { clear: both; }
   }
-  div.clearboth { clear: both; }
 }
