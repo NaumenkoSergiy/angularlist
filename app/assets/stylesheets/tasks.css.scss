@@ -8,6 +8,12 @@
     float: right;
     font-size: 13px;
     color: #4141FF;
+    span {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   div.clearboth { clear: both; }
 }

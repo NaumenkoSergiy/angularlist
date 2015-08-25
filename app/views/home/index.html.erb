@@ -11,8 +11,8 @@
       </div>
       <div class='title'>{{task.title}}</div>
       <div class='action-links'>
-        <span>Delete</span> |
-        <span>Edit</span>
+        <span ng-click='edit(task)'>Edit</span> |
+        <span ng-click='delete(task)'>Delete</span>
       </div>
       <div class='clearboth'></div>
     </li>
