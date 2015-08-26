@@ -42,6 +42,8 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'capybara', '~> 2.4.4'
   gem 'selenium-webdriver'
+  gem 'capybara-angular'
+  gem 'poltergeist'
 end
 
 group :test do

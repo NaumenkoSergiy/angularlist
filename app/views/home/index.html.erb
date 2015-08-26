@@ -1,3 +1,4 @@
+<%= Task.count %>
 <div ng-controller='TasksCtrl' class='tasks-container'>
   <form ng-submit='add()'>
     <input type='text' ng-model='newTask.title' name='task-name' />
@@ -29,11 +30,11 @@
       </div>
       <div class='pd'>
         <div class='priority'>priority: </div>
-        <div class='priority' editable-text='task.priority' buttons='no' onbeforesave="update(task, $data, 'priority')">
+        <div class='priority due_date_priority' editable-text='task.priority' buttons='no' onbeforesave="update(task, $data, 'priority')">
           {{task.priority || 'click to set priority'}}
         </div>
         <div class='due_date'>due date: </div>
-        <div class='priority' editable-text='task.due_date' onShow='attachDatepicker(task)' blur='ignore' buttons='no'>
+        <div class='priority due_date_editable' editable-text='task.due_date' onShow='attachDatepicker(task)' blur='ignore' buttons='no'>
           {{task.due_date || 'click to pick a date'}}
         </div>
       </div>

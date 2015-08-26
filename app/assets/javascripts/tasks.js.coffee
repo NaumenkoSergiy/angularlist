@@ -12,9 +12,10 @@ app.factory 'Task', ['$resource', ($resource) ->
     status: 'completed'
 
   $scope.add = ->
-    task = Task.save($scope.newTask)
-    $scope.tasks.push(task)
-    $scope.newTask = {}
+    task = Task.save $scope.newTask
+           , () ->
+              $scope.tasks.push(task)
+              $scope.newTask = {}
 
   $scope.delete = (task) ->
     if confirm('Are you sure')
