@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  skip_before_filter :require_no_authentication, only: :new
+
   def create
     client = TopTalApi::Client.new(params[:email], params[:password])
     respond_to do |f|
